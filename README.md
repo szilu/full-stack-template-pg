@@ -1,11 +1,11 @@
-Minimalistic full stack application template - TypeScript, Rollup, React, Koa
-=======================================================================
+Minimalistic full stack application template - TypeScript, Rollup, React, Koa, Pg
+=================================================================================
 
 Description
 -----------
 
-*full-stack-template* is a minimalistic full stack application template.
-It uses *TypeScript*, *Rollup* for bundling, *React* for UI and *Koa* for backend API.
+*full-stack-template-pg* is a minimalistic full stack application template.
+It uses *TypeScript*, *Rollup* for bundling, *React* for UI, *Koa* for backend API and *Pg* for database.
 
 Commands
 --------
@@ -28,7 +28,8 @@ Build server (production build).
 
     ./test-server.sh
 
-Run server in development mode (restart on source changes)
+Run server in development mode (restart on source changes). The script
+connects to a database named "test" on localhost. The test database can be empty.
 
 Directory structure
 -------------------

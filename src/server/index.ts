@@ -2,7 +2,8 @@ import init from 'module-alias'
 init('.')
 
 export const config = {
-	listen: process.env.LISTEN || 80
+	listen: process.env.LISTEN || 80,
+	dbURL: process.env.DB_URL || 'postgres://localhost/test'
 }
 
 import { createServer } from 'http'
@@ -13,18 +14,20 @@ import koaStatic from 'koa-static'
 //export { default as Router } from 'koa-router'
 export { Router }
 
+import * as koaPg from '@symbion/koa-pg'
+
 import { init as initExample } from './example'
 
 ///////////////////////
 // Application state //
 ///////////////////////
-export interface State {
+export interface State extends Koa.DefaultState {
 	user?: {
 		userId: number
 	}
 }
 
-export interface Context extends Koa.Context {
+export interface Context extends koaPg.Context {
 	state: State
 	router: Router<State, Context>
 }
@@ -50,7 +53,7 @@ function accept(ctx: Context, next: Next) {
 //////////
 // Init //
 //////////
-const app = new Koa<State, Context>()
+const app: App = new Koa<State, Context>()
 const router = new Router<State, Context>()
 //app.proxy = true
 app.context.router = router
@@ -74,6 +77,7 @@ const httpServer = createServer(app.callback())
 httpServer.listen(config.listen, async () => {
 	console.log('====[ BOOTING ]=======================================================')
 
+	await koaPg.init(app, { url: config.dbURL })
 	await initExample(app)
 
 	console.log('====[ SERVER READY ]==================================================')

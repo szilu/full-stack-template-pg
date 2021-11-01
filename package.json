@@ -1,7 +1,7 @@
 {
-  "name": "full-stack-template",
+  "name": "full-stack-template-pg",
   "version": "1.0.0",
-  "description": "",
+  "description": "Full stack application template - TypeScript, Rollup, React, Koa, Pg",
   "_moduleAliases": {
     "~": "build"
   },
@@ -24,7 +24,7 @@
   "author": "Szilard Hajba <szilard@symbion.hu",
   "license": "MIT",
   "dependencies": {
-    "@rollup/plugin-typescript": "^8.3.0",
+    "@symbion/koa-pg": "^0.3.0",
     "@symbion/runtype": "^0.3.0",
     "koa": "^2.13.4",
     "koa-body": "^4.2.0",
@@ -42,6 +42,7 @@
     "@types/koa-router": "^7.4.4",
     "@types/koa-static": "^4.0.2",
     "@types/module-alias": "^2.0.1",
+    "@types/pg": "^8.6.1",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@types/react-router-dom": "^5.3.2",
