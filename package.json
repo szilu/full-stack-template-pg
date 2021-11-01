@@ -22,7 +22,7 @@
     "start-prod": "NODE_ENV=production node build/server/index.js"
   },
   "author": "Szilard Hajba <szilard@symbion.hu",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "dependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
     "@symbion/runtype": "^0.3.0",
