@@ -10,7 +10,6 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
 import progress from 'rollup-plugin-progress'
-import postcss from 'rollup-plugin-postcss'
 import gzip from 'rollup-plugin-gzip'
 
 export default {
@@ -30,12 +29,6 @@ export default {
 		resolve({ extensions }),
 		commonjs(),
 		isProd && terser(),
-		postcss({
-			//extract: true,
-			extract: 'main.css',
-			minimize: isProd
-			//extract: path.resolve('dist/')
-		}),
 		gzip(),
 		progress(),
 		typescript({ module: 'ES2015' }),
