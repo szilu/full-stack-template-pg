@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+	"target": "es2019",
+	"module": "es2015",
+	"jsx": "react",
+	"esModuleInterop": true,
+	"moduleResolution": "node",
+	"resolveJsonModule": true,
+	"strict": true,
+	"baseUrl": ".",
+	"paths": {
+	    "~/*": ["src/*"]
+	}
+    },
+    "files": ["src/client/main.tsx"]
+}

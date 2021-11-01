@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+	"target": "es2019",
+	"module": "commonjs",
+
+	"esModuleInterop": true,
+	"strict": true,
+
+	"baseUrl": ".",
+	"outDir": "build",
+	"paths": {"~/*": ["src/*"]}
+    },
+    "lib": ["es2019"],
+    "files": [
+	"src/server/index.ts"
+    ]
+}
