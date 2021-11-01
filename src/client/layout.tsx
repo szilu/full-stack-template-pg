@@ -2,10 +2,6 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Route, Link, NavLink, Redirect, useLocation, useHistory } from 'react-router-dom'
 
-import {
-	FiSettings as IcSettings
-} from 'react-icons/fi'
-
 import config from '~/../config'
 import { ExampleRoutes } from './example'
 
