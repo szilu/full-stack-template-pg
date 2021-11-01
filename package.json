@@ -1,7 +1,7 @@
 {
   "name": "full-stack-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "Full stack application template - TypeScript, Rollup, React, Koa",
   "_moduleAliases": {
     "~": "build"
   },
