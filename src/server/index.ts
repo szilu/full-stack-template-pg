@@ -67,7 +67,8 @@ app
 			await next()
 			log(ctx, 'N', `REQ: ${ctx.request.ip} u:${ctx.state.user?.userId || '-'} t:${Date.now() - t}ms ${ctx.status} ${ctx.method} ${ctx.path} ${ctx.search}`)
 		} catch (err) {
-			log(ctx, 'E', `REQ: ${ctx.request.ip} u:${ctx.state.user?.userId || '-'} t:${Date.now() - t}ms ${err.status || ctx.status} ${ctx.method} ${ctx.path} ${ctx.search}`)
+			const status = (err instanceof Object && err.hasOwnProperty('status')) ? (err as { status?: number }).status : ctx.status
+			log(ctx, 'E', `REQ: ${ctx.request.ip} u:${ctx.state.user?.userId || '-'} t:${Date.now() - t}ms ${status} ${ctx.method} ${ctx.path} ${ctx.search}`)
 			throw err
 		}
 	})
