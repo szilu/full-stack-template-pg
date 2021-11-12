@@ -16,6 +16,7 @@ export { Router }
 
 import * as koaPg from '@symbion/koa-pg'
 
+import { log } from './utils'
 import { init as initExample } from './example'
 
 ///////////////////////
@@ -62,8 +63,13 @@ app.context.config = config
 app
 	.use(async (ctx, next) => {
 		const t = Date.now()
-		await next()
-		console.log(`REQ: ${ctx.request.ip} u:${ctx.state.user?.userId || '-'} t:${Date.now() - t}ms ${ctx.method} ${ctx.path} ${ctx.search}`)
+		try {
+			await next()
+			log(ctx, 'N', `REQ: ${ctx.request.ip} u:${ctx.state.user?.userId || '-'} t:${Date.now() - t}ms ${ctx.status} ${ctx.method} ${ctx.path} ${ctx.search}`)
+		} catch (err) {
+			log(ctx, 'E', `REQ: ${ctx.request.ip} u:${ctx.state.user?.userId || '-'} t:${Date.now() - t}ms ${err.status || ctx.status} ${ctx.method} ${ctx.path} ${ctx.search}`)
+			throw err
+		}
 	})
 	.use(koaStatic('./dist'))
 	.use(accept)

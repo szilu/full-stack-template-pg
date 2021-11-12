@@ -1,7 +1,7 @@
-import T from '@symbion/runtype'
+import * as T from '@symbion/runtype'
 
-const tHelloWorld = T.struct({
-    hello: T.string
+export const tHello = T.struct({
+    name: T.string
 })
 
-export type HelloWorld = T.TypeOf<typeof tHelloWorld>
+export type Hello = T.TypeOf<typeof tHello>

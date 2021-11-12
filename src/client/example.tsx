@@ -1,17 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-/////////////////
-// ProjectList //
-/////////////////
-interface Project {
-	prjId: number
-	userId: number
-	email?: string
-	status: string
-	createTime: Date
-}
-
 export function HelloWorld() {
 	const [name, setName] = React.useState('')
 	const [greeting, setGreeting] = React.useState<string | undefined>()
