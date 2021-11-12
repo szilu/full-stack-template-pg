@@ -89,6 +89,8 @@ httpServer.listen(config.listen, async () => {
 
 	console.log('====[ SERVER READY ]==================================================')
 	console.log(`Listening on port ${config.listen}`)
+	console.log(`Development URL (compiled by watch-client): http://localhost:${config.listen}/dev.html`)
+	console.log(`Production URL (compiled by build-client): http://localhost:${config.listen}/`)
 })
 
 // vim: ts=4
